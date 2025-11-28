@@ -1,0 +1,44 @@
+{
+  "name": "webrtc-messenger",
+  "version": "1.0.0",
+  "description": "Simple P2P WebRTC Messenger",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "electron:dev": "electron .",
+    "build:react": "parcel build index.html --dist-dir dist --public-url ./ --no-source-maps",
+    "build:exe": "npm run build:react && electron-builder --win --x64"
+  },
+  "build": {
+    "appId": "com.messenger.webrtc",
+    "productName": "MyMessenger",
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "win": {
+      "target": "nsis"
+    }
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "ws": "^8.13.0"
+  },
+  "devDependencies": {
+    "electron": "^25.0.0",
+    "electron-builder": "^24.0.0",
+    "parcel": "^2.9.0",
+    "postcss": "^8.4.0",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@types/ws": "^8.5.0",
+    "process": "^0.11.10"
+  }
+}
